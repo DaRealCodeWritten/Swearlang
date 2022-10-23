@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-from errors import errors
+import errors
 
 
 keywords = {

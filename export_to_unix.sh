@@ -1,7 +1,5 @@
 echo "Installing Swearlang to /usr/bin"
-cp ./swear.py /usr/bin/swear
-cp -r ./errors /usr/bin/
-cp ./__init__.py /usr/bin
+cp ./swear /usr/bin
 if [ whoami != root ]
     then chmod +x /usr/bin/swear
 else
