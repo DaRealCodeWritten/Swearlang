@@ -21,4 +21,4 @@ case $1 in
         fi
      ;;
 esac
-echo "Installed Swearlang"
+/usr/bin/echo "Installed Swearlang"
