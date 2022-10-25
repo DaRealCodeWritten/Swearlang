@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import sys
-
 import errors
 
 keywords = {
@@ -24,6 +23,8 @@ symbols = {
 
 
 def replacer(string: str):
+    """Find and replace all Swearlang keywords"""
+
     for find, replace in keywords.items():
         string = string.replace(find, replace)
 
@@ -40,7 +41,7 @@ if __name__ == "__main__":
         try:
             filename = sys.argv[fileind+1]
 
-            if "--interpreter-mode" in sys.argv:
+            if "--interpreter-mode" in sys.argv: # Read the file line by line rather than all at once
                 with open(filename) as stream:
                     for line in stream:
                         parse = replacer(line)
@@ -56,3 +57,19 @@ if __name__ == "__main__":
 
         except IndexError as error:
             raise errors.MissingArgumentsError("Missing file name") from error
+
+    else: # User didn't explicitly specify a file, assume the 2nd arg is a file
+        try:
+            filename = sys.argv[1]
+
+            with open(filename) as file:
+                content = file.read()
+
+            code = replacer(content)
+            exec(code)
+
+        except IndexError: # There is no 2nd arg, launch an interpreter
+            while 1:
+                code = input(">>> ")
+                exec(code)
+
