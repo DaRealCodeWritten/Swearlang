@@ -9,7 +9,7 @@ case $1 in
         /usr/bin/cp ./swear.py /usr/bin/Swearlang/swear-dev
         /usr/bin/cp ./errors/errors.py /usr/bin/Swearlang
 
-        if [ $(/usr/bin/whoami) == root ] ; then
+        if [ "$(/usr/bin/whoami)" = "root" ] ; then
             /usr/bin/chmod 755 /usr/bin/Swearlang/swear-dev
 
         else
@@ -23,7 +23,7 @@ case $1 in
         /usr/bin/echo "Installing compiled binary"
         /usr/bin/cp ./swear /usr/bin/swear
 
-        if [ $(/usr/bin/whoami) == root ] ; then
+        if [ "$(/usr/bin/whoami)" = "root" ] ; then
             /usr/bin/chmod +x /usr/bin/swear
 
         else
