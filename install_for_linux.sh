@@ -23,7 +23,7 @@ case $1 in
         /usr/bin/echo "Installing compiled binary"
         /usr/bin/cp ./swear /usr/bin/swear
 
-        if [ $(/usr/bin/whomai) == root ] ; then
+        if [ $(/usr/bin/whoami) == root ] ; then
             /usr/bin/chmod +x /usr/bin/swear
 
         else
