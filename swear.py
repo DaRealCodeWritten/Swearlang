@@ -71,5 +71,5 @@ if __name__ == "__main__":
         except IndexError: # There is no 2nd arg, launch an interpreter
             while 1:
                 code = input(">>> ")
-                exec(code)
+                exec(replacer(code))
 
